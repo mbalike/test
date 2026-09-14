@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dining Farm - Fresh Farm-to-Table Experience in Tanzania</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f2f9f1',
+                            100: '#e1f2df',
+                            500: '#40916c',
+                            600: '#2d6a4f',
+                            700: '#1b4332',
+                            800: '#081c15',
+                        },
+                        amber: {
+                            500: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
+                        <i class="fa-solid font-bold fa-leaf"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight text-brand-700 dark:text-brand-500">Dining Farm</span>
+                        <span class="block text-xs text-gray-500 dark:text-gray-400 font-medium">Tanzania</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">About Us</a>
+                    <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Farm-to-Table</a>
+                    <a href="#menu" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Menu Highlights</a>
+                    <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Contact & Visit</a>
+                </nav>
+
+                <!-- Actions (Theme Toggle + CTA) -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button id="themeToggle" aria-label="Toggle Theme" class="p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 transition-colors">
+                        <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
+                    </button>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm shadow-md transition-all transform hover:-translate-y-0.5">
+                        Book a Table
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-2 md:hidden">
+                    <button id="themeToggleMobile" aria-label="Toggle Theme" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300">
+                        <i id="themeIconMobile" class="fa-solid fa-moon text-lg"></i>
+                    </button>
+                    <button id="mobileMenuBtn" aria-label="Toggle Menu" class="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 dark:text-gray-200 hover:bg-brand-50 dark:hover:bg-gray-800">About Us</a>
+            <a href="#experience" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 dark:text-gray-200 hover:bg-brand-50 dark:hover:bg-gray-800">Farm-to-Table</a>
+            <a href="#menu" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 dark:text-gray-200 hover:bg-brand-50 dark:hover:bg-gray-800">Menu Highlights</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 dark:text-gray-200 hover:bg-brand-50 dark:hover:bg-gray-800">Contact & Visit</a>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-link block w-full text-center px-5 py-2.5 rounded-full bg-brand-600 text-white font-medium text-sm shadow-md">
+                    Book a Table
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-br from-brand-800 via-brand-700 to-brand-600 text-white py-24 lg:py-32 overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 text-center lg:text-left">
+                        <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/20 text-white backdrop-blur-sm border border-white/20">
+                            <i class="fa-solid fa-seedling mr-2"></i> Pure Organic Taste
+                        </span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                            Fresh Organic Food <br class="hidden sm:inline">Straight From Our Fields
+                        </h1>
+                        <p class="text-lg text-brand-100 max-w-xl mx-auto lg:mx-0 font-light">
+                            Experience culinary excellence in Tanzania. Dining Farm combines sustainable organic agriculture with exquisite dining prepared directly from our daily harvest.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#menu" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-brand-800 font-semibold text-center hover:bg-brand-50 transition-all shadow-lg transform hover:-translate-y-0.5">
+                                Explore Menu
+                            </a>
+                            <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/40 text-white font-semibold text-center hover:bg-white/10 transition-all">
+                                Find Our Location
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative mx-auto lg:max-w-none">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
+                            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Fresh farm salad dish" 
+                                 class="w-full h-80 sm:h-96 lg:h-[450px] object-cover"
+                                 onerror="this.src='https://placehold.co/800x600/1b4332/ffffff?text=Dining+Farm'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                                <p class="text-sm font-semibold">Harvested Daily</p>
+                                <p class="text-xs text-brand-100">100% locally grown organic produce</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Farm to Table Concept Section -->
+        <section id="about" class="py-20 bg-white dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold text-brand-600 dark:text-brand-500 uppercase tracking-widest mb-2">Our Philosophy</h2>
+                    <p class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Connecting Land & Plate</p>
+                    <p class="mt-4 text-gray-600 dark:text-gray-300">
+                        At Dining Farm, we cultivate standard agricultural practices paired with master culinary craft to offer fresh, authentic Tanzanian dining experiences.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-800 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-500 flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-wheat-awn"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">100% Organic</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            Our vegetables, spices, and herbs are grown naturally without synthetic pesticides or chemicals.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-800 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-500 flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Seasonal Cuisine</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            Our menu evolves with nature's seasonal yields, guaranteeing optimal freshness and maximum nutritional value.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-800 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-500 flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-people-roof"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Community First</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            We partner with neighboring smallholder farmers to empower local sustainable agriculture across Tanzania.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Menu / Products -->
+        <section id="menu" class="py-20 bg-gray-50 dark:bg-gray-800/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold text-brand-600 dark:text-brand-500 uppercase tracking-widest mb-2">Fresh Selection</h2>
+                    <p class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Sample Highlights</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700/50 hover:shadow-md transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" 
+                             alt="Harvest Salad" 
+                             class="w-full h-48 object-cover"
+                             onerror="this.src='https://placehold.co/600x400/2d6a4f/ffffff?text=Harvest+Salad'">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Farm Harvest Bowl</h3>
+                                <span class="text-brand-600 dark:text-brand-500 font-semibold text-sm">TSH 18,000</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">
+                                Roasted local garden root vegetables, wild greens, avocado, and house citrus-herb vinaigrette.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700/50 hover:shadow-md transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" 
+                             alt="Grilled Delicacy" 
+                             class="w-full h-48 object-cover"
+                             onerror="this.src='https://placehold.co/600x400/2d6a4f/ffffff?text=Grilled+Platter'">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Wood-Fired Platter</h3>
+                                <span class="text-brand-600 dark:text-brand-500 font-semibold text-sm">TSH 28,000</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">
+                                Farm-reared marinated protein grilled over indigenous hardwood charcoal with organic side greens.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700/50 hover:shadow-md transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=600&q=80" 
+                             alt="Fresh Juice" 
+                             class="w-full h-48 object-cover"
+                             onerror="this.src='https://placehold.co/600x400/2d6a4f/ffffff?text=Organic+Juices'">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Fresh Tropical Elixir</h3>
+                                <span class="text-brand-600 dark:text-brand-500 font-semibold text-sm">TSH 7,000</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">
+                                Cold-pressed passion fruit, mango, sugarcane, and fresh farm mint.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Location Section -->
+        <section id="contact" class="py-20 bg-white dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Information Card -->
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-xs font-bold text-brand-600 dark:text-brand-500 uppercase tracking-widest mb-2">Visit Dining Farm</h2>
+                            <p class="text-3xl font-bold text-gray-900 dark:text-white">Get in Touch</p>
+                            <p class="mt-3 text-gray-600 dark:text-gray-400">
+                                We welcome guests for farm tours, dining reservations, and organic produce pickups.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-500 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">Location</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Dar es Salaam / Coastal Region, Tanzania</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-500 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">Email Address</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">info@diningfarm.co.tz</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-500 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-globe"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">Website</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">https://diningfarm.co.tz</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Send Us a Message</h3>
+                        <form id="contactForm" class="space-y-4" onsubmit="event.preventDefault(); showNotification();">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Your Name</label>
+                                <input type="text" required class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Message / Inquiry</label>
+                                <textarea rows="4" required class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3 px-6 rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-colors shadow-md">
+                                Submit Message
+                            </button>
+                        </form>
+                        <div id="formSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-xs">
+                            Thank you! Your message has been received. We will respond shortly.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 text-sm">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-leaf text-brand-500"></i>
+                <span class="text-white font-semibold">Dining Farm</span>
+                <span>&copy; 2026. All rights reserved.</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook text-lg"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme switching functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeToggleMobile = document.getElementById('themeToggleMobile');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeIconMobile = document.getElementById('themeIconMobile');
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                themeIcon.className = 'fa-solid fa-moon text-lg';
+                themeIconMobile.className = 'fa-solid fa-moon text-lg';
+            } else {
+                document.documentElement.classList.add('dark');
+                themeIcon.className = 'fa-solid fa-sun text-lg';
+                themeIconMobile.className = 'fa-solid fa-sun text-lg';
+            }
+        }
+
+        themeToggle?.addEventListener('click', toggleTheme);
+        themeToggleMobile?.addEventListener('click', toggleTheme);
+
+        // Mobile drawer menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form feedback
+        function showNotification() {
+            const successMsg = document.getElementById('formSuccess');
+            const form = document.getElementById('contactForm');
+            if (successMsg) {
+                successMsg.classList.remove('hidden');
+                form.reset();
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 4000);
+            }
+        }
+    </script>
+</body>
+</html>
